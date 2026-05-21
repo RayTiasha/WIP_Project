@@ -121,3 +121,26 @@ closed_at = CASE
     WHEN TRIM(@closed_at) IN ('', '?') THEN NULL
     ELSE STR_TO_DATE(@closed_at, '%d/%m/%Y %H:%i')
 END;
+
+--- The process table records how customer issues are handled internally.
+
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/Customer Operational Risk.csv'
+INTO TABLE saas_analytics.process_raw
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+  (case_id,
+    variant,
+    priority,
+    reporter,
+    @timestamp,
+    event,
+    issue_type,
+    resolver,
+    report_channel,
+    short_description,
+    customer_satisfaction
+)
+SET
+	 timestamp = STR_TO_DATE(@timestamp, '%d/%m/%Y %H:%i');
