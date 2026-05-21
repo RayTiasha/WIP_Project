@@ -1,3 +1,5 @@
+-- Customers table stores user information
+
 CREATE TABLE saas_analytics.customer_raw (
     CustomerID VARCHAR(50),
     Country VARCHAR(50),
