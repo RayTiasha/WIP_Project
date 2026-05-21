@@ -1,4 +1,4 @@
-
+-- Customers table stores user information
 /*
   CSV has blank values, and hidden non-numeric. Fix:
       1. TRIM() - Removes: spaces, " ", tabs, hidden characters.
