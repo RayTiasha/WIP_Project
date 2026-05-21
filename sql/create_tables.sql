@@ -1,3 +1,11 @@
+/*
+Create database for the project
+This database will store all tables related to the analysis
+*/
+
+CREATE DATABASE saas_analytics;
+USE saas_analytics;
+
 -- Customers table stores user information
 
 CREATE TABLE saas_analytics.customer_raw (
